@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import patterns, include, url
-from .views import simple_view
+from . import views
 
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^simple_view/', simple_view),
+    url(r'^simple_view/', views.simple_view),
+    url(r'^call_mul/', views.call_mul),
 )
