@@ -38,7 +38,12 @@ DEFAULT_APPS = (
     'django.contrib.staticfiles',
 )
 
-THIRDPARTY_APPS =  ()
+THIRDPARTY_APPS =  ('django',
+                    'rest_framework',
+                     'debug_toolbar',
+                    'django_extensions',
+                    'celery',
+                    'djcelery')
 
 LOCAL_APPS = ()
 
@@ -86,3 +91,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Celery
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+#CELERY_RESULT_BACKEND='djcelery.backends.cache:CacheBackend'
+CELERY_TASK_RESULT_EXPIRES = 3600
