@@ -78,7 +78,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
@@ -92,9 +92,25 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+SHELL_PLUS = 'ipython'
+
 # Celery
 CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 #CELERY_RESULT_BACKEND='djcelery.backends.cache:CacheBackend'
 CELERY_TASK_RESULT_EXPIRES = 3600
 
-SHELL_PLUS = 'ipython'
+
+from datetime import timedelta
+
+CELERYBEAT_SCHEDULE = {
+    'sched-test-1': {
+        'task': 'nostril.tasks.mul',
+        'schedule': timedelta(seconds=30),
+        'args': (3, 4)
+    }
+}
+
+CELERY_ANNOTATIONS = {
+    'nostril.tasks.mul': {'rate_limit': '3/m'
+        }
+}

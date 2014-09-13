@@ -15,3 +15,7 @@ def dummy_output(message):
 def dummy_output_ignore_state(message):
     print('Message: {0}'.format(message))
     raise Ignore()
+
+@shared_task
+def pow(x, y):
+    return x ** y
