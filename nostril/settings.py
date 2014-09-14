@@ -68,8 +68,10 @@ WSGI_APPLICATION = 'nostril.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'nostril_dev',
     }
 }
 
@@ -111,6 +113,6 @@ CELERYBEAT_SCHEDULE = {
 }
 
 CELERY_ANNOTATIONS = {
-    'nostril.tasks.mul': {'rate_limit': '3/m'
-        }
+    #'nostril.tasks.mul': {'rate_limit': '3/m'
+    #    }
 }

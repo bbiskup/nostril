@@ -11,6 +11,7 @@ httplib2==0.9
 ipython==2.2.0
 kombu==3.0.22
 pep8==1.5.7
+psycopg2==2.5.4
 py==1.4.24
 pyrabbit==1.1.0
 pytest==2.6.2
