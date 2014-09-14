@@ -7,7 +7,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'nostril.settings')
 
 app = Celery('nostril',
              broker='amqp://',
-             backend='amqp://',
+             #backend='amqp',
+             backend='redis://localhost',
              include=['nostril.tasks'])
 app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)

@@ -97,7 +97,7 @@ STATIC_URL = '/static/'
 SHELL_PLUS = 'ipython'
 
 # Celery
-CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+#CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
 #CELERY_RESULT_BACKEND='djcelery.backends.cache:CacheBackend'
 CELERY_TASK_RESULT_EXPIRES = 3600
 
